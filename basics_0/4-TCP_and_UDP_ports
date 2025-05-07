@@ -1,19 +1,4 @@
 #!/usr/bin/env bash
 # Script that displays listening ports (TCP/UDP) with PID and name of the program.
 
-echo "Active Internet connections (only servers)"
-# lists all active TCP/UDP connections with listening sockets and associated processes.
-sudo netstat -tunlp | grep LISTEN
-#   -t  → Show TCP connections
-#   -u  → Show UDP connections
-#   -n  → Show numerical addresses instead of resolving hostnames
-#   -l  → Show only listening sockets (servers waiting for connections)
-#   -p  → Show PID and name of the process using the socket
-#   | grep LISTEN → Filters output to show only sockets in LISTEN state (ignores active client connections)
-
-echo "Active UNIX domain sockets (only servers)"
-# displays UNIX domain sockets in listening state and their associated processes.
-sudo netstat -lxp
-#   -l  → Show only listening sockets
-#   -x  → Show UNIX domain sockets (used for inter-process communication on the same system)
-#   -p  → Show PID and name of the process using the socket
+netstat -lp
