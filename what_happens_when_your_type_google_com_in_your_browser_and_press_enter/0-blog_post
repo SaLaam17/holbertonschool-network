@@ -3,7 +3,7 @@ Have you ever wondered what magic unfolds the moment you press Enter after typin
 
 Let’s break down what really happens behind the scenes.
 
-1. 🌐 DNS Request – Finding the Server's IP Address
+## 1. DNS Request – Finding the Server's IP Address
 The first step is converting the human-readable domain name www.google.com into a machine-readable IP address.
 
 DNS (Domain Name System) acts like the internet’s phone book.
@@ -22,9 +22,9 @@ Authoritative name servers (Google’s)
 
 It receives an A or AAAA record, e.g., 142.250.74.100.
 
-✅ Now, the browser knows where to send the request.
+Now, the browser knows where to send the request.
 
-2. 🔒 Firewall – Network Gatekeeper
+## 2. Firewall – Network Gatekeeper
 As the request leaves your machine and travels through the internet, it passes through several firewalls:
 
 Your computer’s local firewall
@@ -35,7 +35,7 @@ Google’s enterprise-grade firewalls
 
 These firewalls filter traffic, block malicious packets, and protect against threats like DDoS attacks.
 
-3. 🔌 TCP/IP – Establishing a Connection
+## 3. TCP/IP – Establishing a Connection
 Your browser establishes a TCP (Transmission Control Protocol) connection with the server’s IP address on port 443, the default for HTTPS.
 
 TCP ensures reliable data transmission via a three-way handshake:
@@ -48,7 +48,7 @@ ACK
 
 This happens over the IP (Internet Protocol) layer, ensuring routing between networks.
 
-4. 🔐 HTTPS/SSL/TLS – Securing the Communication
+## 4. HTTPS/SSL/TLS – Securing the Communication
 Because we’re accessing https://, the connection must be secure.
 
 The browser initiates a TLS (Transport Layer Security) handshake (modern replacement for SSL).
@@ -61,7 +61,7 @@ They agree on a shared session key using asymmetric encryption.
 
 All further communication is now encrypted, ensuring confidentiality and integrity.
 
-5. ⚖️ Load Balancer – Distributing the Request
+## 5. Load Balancer – Distributing the Request
 Once inside Google's data center, your request hits a load balancer:
 
 This component distributes incoming traffic across multiple backend servers to avoid overload and increase redundancy.
@@ -76,9 +76,9 @@ Least Connections
 
 IP Hashing
 
-🧠 Goal: High availability, scalability, and fault tolerance.
+Goal: High availability, scalability, and fault tolerance.
 
-6. 🖥️ Web Server – Handling the Request
+## 6. Web Server – Handling the Request
 The load balancer routes your request to a web server, such as NGINX or a custom Google frontend server.
 
 The web server:
@@ -89,7 +89,7 @@ Serves static content like HTML, CSS, JavaScript, and images
 
 For dynamic content, forwards the request to the application server
 
-7. ⚙️ Application Server – Business Logic
+## 7. Application Server – Business Logic
 If you’re searching or logged in, a backend service is required.
 
 The application server (built in languages like Go, Java, Python) handles:
@@ -102,7 +102,7 @@ Authentication
 
 It prepares the correct response based on user input.
 
-8. 🗄️ Database – Storing and Retrieving Data
+## 8. Database – Storing and Retrieving Data
 To fulfill the request, the application server may query a database.
 
 Google uses distributed NoSQL databases like Spanner or BigTable.
@@ -115,14 +115,14 @@ Replicas handle read-only requests
 
 This ensures high performance and availability at global scale.
 
-9. 📦 HTTP Response – Back to Your Browser
+## 9. HTTP Response – Back to Your Browser
 The final result (a search page or homepage) is returned via the same path:
 
 Application server → Web server → Load balancer → Internet → Browser
 
 The browser receives an HTTP response containing the HTML content and starts rendering.
 
-10. 🧠 Rendering the Page – Displaying Google
+## 10. Rendering the Page – Displaying Google
 Finally, your browser:
 
 Parses the HTML
